@@ -1,8 +1,0 @@
-Ternant Johan 
-Titre du Projet :Créez une page web dynamique avec JavaScript
-Date de démarrage du Projet n°6 le 21/02/2024
-
-Projet n°6 : Sophie Bluel Architecte d'intérieur
-
-Lien du repository GitHub : https://github.com/Johan-Tnt/Ternant_Johan_n_6_Creez_une_page_web_dynamique_avec_JavaScript_21_02_2024.git
-
