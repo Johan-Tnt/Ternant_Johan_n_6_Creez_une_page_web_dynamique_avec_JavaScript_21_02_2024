@@ -51,7 +51,7 @@ async function displayCategorysButtons() {
   /*Pour faire apparaitre les éléments des catégories*/
   categorys.forEach((category) => {
     const btn = document.createElement("button");
-    btn.textContent = category.name.toUpperCase();
+    btn.textContent = category.name;
     btn.id = category.id;
     filters.appendChild(btn);
     /*Ajout de ma classe pour les boutons filtre ci-dessous*/
@@ -75,7 +75,7 @@ async function filterProject() {
           return element.categoryId == btnId;
         });
         projectTriCats.forEach((element) => {
-          createProject(element);
+          createProject(element); /*Permet le filtrage des projets*/
           console.log(projectTriCats);
         });
       } else {

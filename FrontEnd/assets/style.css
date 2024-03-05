@@ -262,3 +262,24 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em;
 }
+
+/*Début du code Johan*/
+/*Boutons filtre des projets*/
+.btn_project {
+  font-family: "Syne";
+  color: #1d6154;
+  background-color: white;
+  margin-top: 25px;
+  margin-bottom: 55px;
+  border-radius: 60px;
+  height: 37px;
+  border: solid 1px #1d6154;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+.btn_project:hover {
+  color: white;
+  background-color: #1d6154;
+  cursor: pointer;
+}
+/*Fin du code Johan*/
