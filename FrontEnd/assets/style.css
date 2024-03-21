@@ -282,4 +282,82 @@ footer nav ul {
   background-color: #1d6154;
   cursor: pointer;
 }
+.filter_project {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+/*Mise en page du Login*/
+.login_connection_page {
+  font-weight: bold;
+}
+.connection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.forget_password {
+  text-align: center;
+  color: inherit;
+}
+.input_connection {
+  width: 380px;
+}
+.legal_alignement {
+  margin-top: 250px;
+}
+.btn_login {
+  color: inherit;
+  text-decoration: none;
+}
+#connection_login {
+  width: 50%;
+  margin: auto;
+  padding-top: 70px;
+}
+#connection_login form {
+  display: flex;
+  flex-direction: column;
+}
+.connection_login input {
+  height: 50px;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#connection_login label {
+  margin: 2em 0 1em 0;
+}
+#connection h2 {
+  margin-bottom: 20px;
+}
+#connection > * {
+  text-align: center;
+}
+#connection p {
+  text-align: center;
+}
+/*Message d'erreur en rouge*/
+.connection p {
+  color: red;
+  margin-top: 20px;
+}
+.connection form .input_error_login {
+  border: 1px solid red;
+}
+/*Bouton Se connecter du Login*/
+.btn_connection {
+  font-family: "Syne";
+  color: #ffffff;
+  background-color: #1d6154;
+  margin-top: 37px;
+  margin-bottom: 28px;
+  border-radius: 60px;
+  height: 37px;
+  border: solid 1px #1d6154;
+  font-size: 1rem;
+  margin-left: 90px;
+  cursor: pointer;
+  width: 200px;
+}
 /*Fin du code Johan*/

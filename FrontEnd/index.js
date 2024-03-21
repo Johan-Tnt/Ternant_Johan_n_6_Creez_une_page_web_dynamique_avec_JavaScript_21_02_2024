@@ -87,4 +87,17 @@ async function filterProject() {
 }
 filterProject();
 
+/*Si l'utilisateur est connecté*/
+const loged = sessionStorage.getItem("token");
+const admin = document.querySelector(".admin");
+const logout = document.querySelector(".logout");
+console.log(admin);
+
+if (loged != "undefined") {
+  admin.textContent = "admin";
+  logout.textContent = "logout";
+  logout.addEventListener("click", () => {
+    sessionStorage.setItem("token", undefined);
+  });
+}
 /**Fin du code Johan**/
