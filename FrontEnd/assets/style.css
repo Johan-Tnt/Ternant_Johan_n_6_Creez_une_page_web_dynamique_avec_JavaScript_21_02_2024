@@ -360,4 +360,108 @@ footer nav ul {
   cursor: pointer;
   width: 200px;
 }
+/*Mise en page du bouton modale*/
+.button_modale {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  position: absolute;
+  right: 490px;
+  top: 540px;
+  cursor: pointer;
+  display: none; /*Pour faire disparaitre le conteneur de la page lorsque l'admin n'est pas connecté*/
+}
+.button_modale_2 {
+  position: absolute;
+  cursor: pointer;
+  bottom: 50px;
+  margin-left: initial;
+  bottom: 30px;
+}
+.title_modal {
+  font-size: 25px;
+  padding-bottom: 30px;
+}
+.icon_modification {
+  margin-right: 10px;
+}
+/*Bouton icon*/
+.button_cross {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.button_arrow_left {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.grey_line {
+  border-top: solid 1px #b3b3b3;
+  width: 450px;
+  margin-top: 20px;
+}
+/*Conteneur de la modale*/
+.containerModals {
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.356);
+  bottom: 1px;
+  left: 1px;
+  display: none; /*Pour faire disparaitre le conteneur de la page lorsque l'admin n'est pas connecté*/
+}
+.modalGallery {
+  background-color: white;
+  width: 630px;
+  height: 670px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: space-around;*/
+  position: relative;
+  margin: auto;
+  padding-top: 70px;
+}
+.pictureModal {
+  /*width: 100%;*/
+  height: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 65px;
+}
+/*Pour mettre les photos des projets dans la modal*/
+.modalGallery .pictureModal figure {
+  /*width: 20%;*/
+  height: 25%;
+  position: relative;
+}
+.modalGallery .pictureModal figure img {
+  width: 100%;
+  height: 100%;
+}
+.modalGallery .pictureModal figure span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: black;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+.modalGallery .pictureModal figure span .fa-trash-can {
+  color: white;
+  font-size: 0.7rem;
+}
 /*Fin du code Johan*/

@@ -12,7 +12,15 @@
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
+
   <body>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -53,8 +61,39 @@
           </p>
         </article>
       </section>
+
       <section id="portfolio">
         <h2>Mes Projets</h2>
+        <!--Bouton "modifier" pour l'admin-->
+        <button class="button button_modale">
+          <span
+            ><i
+              class="fa-regular fa-pen-to-square icon_modification"
+              style="color: #000000"
+            ></i></span
+          >modifier
+        </button>
+        <!--Conteneur de la modale ci-dessous-->
+        <div class="containerModals">
+          <!--Conteneur "galerie photo"-->
+          <div class="modalGallery">
+            <span
+              ><i
+                class="fa-solid fa-xmark button_cross"
+                style="color: #000000"
+              ></i
+            ></span>
+            <h3 class="title_modal">Galerie photo</h3>
+            <div class="pictureModal"></div>
+            <button class="button button_modale_2 btn_connection">
+              Ajouter une photo
+            </button>
+            <div class="grey_line">
+              <!--Conteneur de la bordure top grise-->
+            </div>
+          </div>
+        </div>
+
         <div class="filters filter_project">
           <button id="0" type="button" class="btn_project">Tous</button>
         </div>
@@ -82,6 +121,7 @@
         </ul>
       </nav>
     </footer>
+
     <script src="./index.js"></script>
     <!-- Pour faire fonctionner le JavaScript-->
   </body>

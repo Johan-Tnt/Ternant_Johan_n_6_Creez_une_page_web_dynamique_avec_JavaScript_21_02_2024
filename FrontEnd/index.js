@@ -94,10 +94,69 @@ const logout = document.querySelector(".logout");
 console.log(admin);
 
 if (loged != "undefined") {
-  admin.textContent = "admin";
+  /*Fait apparaître le mot "logout" et permet de déconnecter l'admin*/
   logout.textContent = "logout";
   logout.addEventListener("click", () => {
     sessionStorage.setItem("token", undefined);
   });
+  /*Permet de faire disparaitre les boutons "filtres*/
+  filters.style.display = "none";
 }
+
+/*Au click sur Admin affichage des modales*/
+const containerModals = document.querySelector(".containerModals");
+const xmark = document.querySelector(".containerModals .fa-xmark");
+const pictureModal = document.querySelector(".pictureModal");
+const buttonModal = document.querySelector(".button_modale");
+
+function manageDisplayModalGallery(params) {
+  /*Fonction qui gère l'affichage de "modifier" lorsque que l'admin est connecté*/
+  if (loged != "undefined") {
+    buttonModal.style.display = "flex";
+    /*Fonction qui gère l'affichage de la modale au click sur "modifier"*/
+    const buttonModification = document.querySelectorAll(".button_modale");
+    console.log(buttonModification);
+    buttonModification.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        console.log("boutton");
+        containerModals.style.display = "flex";
+      });
+    });
+  }
+  /*Gère la fermeture de la modale sur la croix*/
+  xmark.addEventListener("click", () => {
+    console.log("xmark");
+    containerModals.style.display = "none";
+  });
+  /*Gère la fermeture sur le container en dehors */
+  containerModals.addEventListener("click", (e) => {
+    console.log(e.target.className);
+    console.log("containerModals");
+    if (e.target.className == "containerModals") {
+      containerModals.style.display = "none";
+    }
+  });
+}
+manageDisplayModalGallery();
+
+/*Affichage des photos dans la galerie*/
+async function displayGalleryModal() {
+  pictureModal.innerHTML = "";
+  const gallery = await fetchWork();
+  gallery.forEach((picture) => {
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const span = document.createElement("span");
+    const trash = document.createElement("i");
+    trash.classList.add("fa-solid", "fa-trash-can");
+    trash.id = picture.id;
+    img.src = picture.imageUrl;
+    span.appendChild(trash);
+    figure.appendChild(span);
+    figure.appendChild(img);
+    pictureModal.appendChild(figure);
+  });
+}
+displayGalleryModal();
+
 /**Fin du code Johan**/
