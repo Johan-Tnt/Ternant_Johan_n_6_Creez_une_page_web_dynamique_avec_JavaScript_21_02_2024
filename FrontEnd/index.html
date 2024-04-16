@@ -63,16 +63,20 @@
       </section>
 
       <section id="portfolio">
-        <h2>Mes Projets</h2>
-        <!--Bouton "modifier" pour l'admin-->
-        <button class="button button_modale">
-          <span
-            ><i
-              class="fa-regular fa-pen-to-square icon_modification"
-              style="color: #000000"
-            ></i></span
-          >modifier
-        </button>
+        <div class="space_project">
+          <!--Bouton "modifier" pour l'admin-->
+          <div class="alignement_btn_modal">
+            <h2 class="space_project_h_2">Mes Projets</h2>
+            <button class="button button_modal">
+              <span
+                ><i
+                  class="fa-regular fa-pen-to-square icon_modification"
+                  style="color: #000000"
+                ></i></span
+              >modifier
+            </button>
+          </div>
+        </div>
         <!--Conteneur de la modale ci-dessous-->
         <div class="containerModals">
           <!--Conteneur "galerie photo"-->
@@ -85,19 +89,67 @@
             ></span>
             <h3 class="title_modal">Galerie photo</h3>
             <div class="pictureModal"></div>
-            <button class="button button_modale_2 btn_connection">
+            <button class="button button_modal_2 btn_connection">
               Ajouter une photo
             </button>
             <div class="grey_line">
               <!--Conteneur de la bordure top grise-->
             </div>
           </div>
+
+          <!--Conteneur "ajout photo"-->
+          <div class="modalAddProject">
+            <span
+              ><i
+                class="fa-solid fa-arrow-left button_arrow_left"
+                style="color: #000000"
+              ></i
+            ></span>
+            <span
+              ><i
+                class="fa-solid fa-xmark button_cross"
+                style="color: #000000"
+              ></i
+            ></span>
+            <h3 class="title_modal_2">Ajout photo</h3>
+            <form class="modal_add_project_2">
+              <div class="containerFile">
+                <span><i class="fa-regular fa-image icon_picture"></i></span>
+                <label for="file">+ Ajouter photo</label>
+                <input type="file" id="file" name="image" />
+                <img src="#" alt="Aperçut de l'image" />
+                <p class="format_picture">jpg, png : 4mo max</p>
+              </div>
+              <label for="title" class="add_picture_title">Titre</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="input_add_picture"
+              />
+              <label for="category" class="add_picture_title">Catégorie</label>
+              <select
+                name="category"
+                id="category"
+                class="input_add_picture"
+              ></select>
+              <button
+                class="button button_modal_2 btn_connection modal_button_no_valid"
+                disabled
+              >
+                Valider
+              </button>
+              <div class="grey_line_2">
+                <!--Conteneur de la bordure top grise-->
+              </div>
+            </form>
+          </div>
         </div>
 
         <div class="filters filter_project">
           <button id="0" type="button" class="btn_project">Tous</button>
         </div>
-        <div class="gallery"></div>
+        <div class="gallery gallery_alignement"></div>
       </section>
       <section id="contact">
         <h2>Contact</h2>

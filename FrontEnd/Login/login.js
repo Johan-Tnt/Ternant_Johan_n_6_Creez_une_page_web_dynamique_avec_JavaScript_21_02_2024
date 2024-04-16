@@ -26,17 +26,17 @@ async function login() {
     });
     const data = await reponse.json();
     console.log(data);
-    sessionStorage.setItem("token", data.token);
-    sessionStorage.getItem("token");
-    console.log(sessionStorage.getItem("token"));
+    localStorage.setItem("token", data.token);
+    localStorage.getItem("token");
+    console.log(localStorage.getItem("token"));
     /*Login pour se connecté avec e-mail, mdps et token */
-    const token = sessionStorage.getItem("token");
-    window.sessionStorage.loged = "token";
-    if (sessionStorage.getItem("token") != "undefined") {
-      window.sessionStorage.loged = true;
+    const token = localStorage.getItem("token");
+    window.localStorage.loged = "token";
+    if (localStorage.getItem("token") != "undefined") {
+      window.localStorage.loged = true;
       window.location.href = "../index.html";
       console.log("ok");
-      console.log(sessionStorage.getItem("token"));
+      console.log(localStorage.getItem("token"));
     } else {
       email.classList.add("input_error_login");
       console.log(password.classList.add("input_error_login"));

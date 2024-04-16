@@ -263,8 +263,8 @@ footer nav ul {
   margin: 2em;
 }
 
-/*Début du code Johan*/
-/*Boutons filtre des projets*/
+/***Début du code Johan***/
+/**Boutons filtre des projets**/
 .btn_project {
   font-family: "Syne";
   color: #1d6154;
@@ -287,8 +287,10 @@ footer nav ul {
   margin: auto;
   text-align: center;
 }
-
-/*Mise en page du Login*/
+.gallery_alignement {
+  bottom: 50px;
+}
+/**Mise en page du Login**/
 .login_connection_page {
   font-weight: bold;
 }
@@ -360,28 +362,41 @@ footer nav ul {
   cursor: pointer;
   width: 200px;
 }
-/*Mise en page du bouton modale*/
-.button_modale {
+
+/**Code de la modal n°1 Galerie des photos**/
+/**Mise en page du bouton modal**/
+.button_modal {
   border: none;
   background: none;
   cursor: pointer;
   font-size: 15px;
-  position: absolute;
-  right: 490px;
-  top: 540px;
   cursor: pointer;
   display: none; /*Pour faire disparaitre le conteneur de la page lorsque l'admin n'est pas connecté*/
+  margin-bottom: 100px;
+  padding-left: 35px;
 }
-.button_modale_2 {
+.alignement_btn_modal {
+  position: relative;
+  justify-content: center;
+  align-items: baseline;
+  display: flex;
+  margin-top: 60px;
+}
+.button_modal_2 {
   position: absolute;
   cursor: pointer;
   bottom: 50px;
   margin-left: initial;
   bottom: 30px;
+  margin: auto;
 }
 .title_modal {
   font-size: 25px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+}
+.title_modal_2 {
+  font-size: 25px;
+  padding-top: 55px;
 }
 .icon_modification {
   margin-right: 10px;
@@ -392,19 +407,36 @@ footer nav ul {
   right: 10px;
   top: 10px;
   cursor: pointer;
+  font-size: 20px;
+  margin: 15px;
 }
 .button_arrow_left {
   position: absolute;
   left: 10px;
   top: 10px;
   cursor: pointer;
+  margin: 15px;
 }
+/*Ligne grise de la modal qui se situe en bas*/
 .grey_line {
   border-top: solid 1px #b3b3b3;
   width: 450px;
-  margin-top: 20px;
+  margin: auto;
+  padding-top: 40px;
 }
-/*Conteneur de la modale*/
+.grey_line_2 {
+  border-top: solid 1px #b3b3b3;
+  margin-top: 50px;
+}
+/*Espacement entre le titre "mes projets" et les images des projets*/
+.space_project {
+  padding-top: 50px;
+  position: relative;
+}
+.space_project_h_2 {
+  position: relative;
+}
+/*Conteneur de la modal*/
 .containerModals {
   display: flex;
   position: fixed;
@@ -419,29 +451,26 @@ footer nav ul {
   background-color: white;
   width: 630px;
   height: 670px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*justify-content: space-around;*/
   position: relative;
   margin: auto;
-  padding-top: 70px;
+  padding-top: 61px;
 }
 .pictureModal {
-  /*width: 100%;*/
   height: 70%;
   display: flex;
-  justify-content: flex-start;
+  /*justify-content: flex-center;*/
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  padding-left: 65px;
+  max-width: 72%;
 }
 /*Pour mettre les photos des projets dans la modal*/
 .modalGallery .pictureModal figure {
-  /*width: 20%;*/
-  height: 25%;
+  height: 23%;
   position: relative;
 }
 .modalGallery .pictureModal figure img {
@@ -464,4 +493,96 @@ footer nav ul {
   color: white;
   font-size: 0.7rem;
 }
-/*Fin du code Johan*/
+/*Contient les boutons ajout de "Titre" et de "Catégories"*/
+.input_add_picture {
+  height: 50px;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: 1px solid white;
+}
+
+/**Code de la modal n°2 des ajouts de photos des projets**/
+.modalAddProject {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  position: relative;
+  margin: auto;
+  width: 630px;
+  height: 670px;
+}
+.modalAddProject .fa-arrow-left {
+  font-size: 20px;
+  cursor: pointer;
+}
+.modalAddProject form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+  width: 69%;
+  gap: 10px;
+}
+.modal_add_project_2 {
+  margin-bottom: 120px;
+}
+.modalAddProject form .containerFile {
+  background-color: #e8f1f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  height: 160px;
+}
+.icon_picture {
+  color: #cbd6dc;
+}
+.modalAddProject form .containerFile label {
+  background-color: #cbd6dc;
+  color: #306685;
+  border-radius: 15px;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  text-align: center;
+}
+.modalAddProject form .containerFile input {
+  display: none;
+}
+.modalAddProject form .containerFile .fa-image {
+  font-size: 70px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.modalAddProject form .containerFile img {
+  display: none;
+  max-width: 100%;
+  max-height: 100%;
+}
+.modalAddProject form .button {
+  margin-left: 120px;
+}
+.modalAddProject form .button:focus {
+  background-color: black;
+  color: white;
+}
+/*Contient les boutons pour ajouter les photos*/
+.modal_button_no_valid {
+  background-color: #a7a7a7;
+  border: solid 1px #a7a7a7;
+}
+.modalAddProject form .valid {
+  background-color: #1d6154;
+  border: solid 1px #1d6154;
+}
+.add_picture_title {
+  font-weight: bold;
+}
+.format_picture {
+  font-size: 10px;
+  padding-top: 10px;
+}
+/***Fin du code Johan***/
