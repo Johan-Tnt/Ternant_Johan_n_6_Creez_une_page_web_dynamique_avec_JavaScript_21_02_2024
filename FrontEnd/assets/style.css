@@ -585,4 +585,11 @@ footer nav ul {
   font-size: 10px;
   padding-top: 10px;
 }
+/*Message d'erreur en rouge de l'ajout photo*/
+.add_picture_error {
+  color: red;
+  justify-content: center;
+  position: relative;
+  top: 110px;
+}
 /***Fin du code Johan***/

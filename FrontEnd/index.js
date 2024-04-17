@@ -287,7 +287,7 @@ form.addEventListener("submit", async (e) => {
     .catch((error) =>
       console.log("erreur, la photo n'a pas été ajouté", error)
     );
-  /*Erreur photo non ajouté*/
+  /*Erreur photo non ajoutée*/
 });
 
 /*Fonction qui vérifie si tout les inputs sont remplis*/
@@ -297,15 +297,24 @@ function formValidateSuccessfully() {
   const title = document.querySelector(".modalAddProject #title");
   const category = document.querySelector(".modalAddProject #category");
   const inputFile = document.querySelector(".containerFile input");
+  /*Message erreur lorsque le formulaire n'est pas correctement rempli*/
+  const errorFormulaire = document.querySelector(".add_picture_error");
 
   form.addEventListener("input", () => {
     if (title.value !== "" && category.value !== "" && inputFile.value !== "") {
+      /*La fonction "disabled" empêche la photo d'être ajouter si le formulaire n'est pas rempli correctement*/
       buttonValidForm.classList.add("valid");
       buttonValidForm.disabled = false;
-      /*La fonction "disabled" empêche la photo d'être ajouter si le formulaire n'est pas remplie correctement*/
+      /*Disparition du message erreur lorsque le formulaire est correctement rempli*/
+      errorFormulaire.style.display = "none";
     } else {
       buttonValidForm.classList.remove("valid");
       buttonValidForm.disabled = true;
+      /* Apparition du message erreur lorsque le formulaire n'est pas correctement rempli*/
+      errorFormulaire.textContent =
+        "Erreur, le formulaire n’est pas correctement rempli";
+      title.classList.add("input_error_login");
+      errorFormulaire.style.display = "flex";
     }
   });
 }
