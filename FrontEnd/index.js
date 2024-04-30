@@ -263,6 +263,7 @@ const category = document.querySelector(".modalAddProject #category");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  const buttonValidForm = document.querySelector(".modalAddProject button");
   /*Appelle du Token*/
   /*Avec le swagger pour ajouter un nouveau "works"*/
   const loged = localStorage.getItem("token");
@@ -282,6 +283,13 @@ form.addEventListener("submit", async (e) => {
       displayGalleryModal();
       app();
       containerModals.style.display = "none";
+      form.reset();
+      previewImg.style.display = "none";
+      labelFile.style.display = "initial";
+      inconFile.style.display = "flex";
+      pFile.style.display = "flex";
+      buttonValidForm.disabled = true;
+      buttonValidForm.classList.remove("valid");
       /*Ajout de la photo*/
     })
     .catch((error) =>
