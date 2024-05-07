@@ -91,31 +91,36 @@ filterProject();
 
 /**Code du Login**/
 /*Lorsque l'utilisateur est connecté*/
-const loged = localStorage.getItem("token");
+const loged = sessionStorage.getItem("token");
 const admin = document.querySelector(".admin");
 const logout = document.querySelector(".logout");
 console.log(admin);
+/*Au click sur le btn "Modifier" affichage des modales lorsque l'on est Administrateur*/
+const buttonModal = document.querySelector(".button_modal");
 
-if (loged != "undefined") {
+if (loged == "undefined" || loged == null) {
+  buttonModal.style.display = "none";
+} else {
+  console.log(loged);
   /*Fait apparaître le mot "logout" et permet de déconnecter l'admin*/
   logout.textContent = "logout";
   logout.addEventListener("click", () => {
-    localStorage.setItem("token", undefined);
+    sessionStorage.setItem("token", undefined);
   });
   /*Permet de faire disparaitre les boutons "filtres*/
   filters.style.display = "none";
 }
 
 /**Code de la modal n°1**/
-/*Au click sur le btn "Modifier" affichage des modals lorsque l'on est Administrateur*/
+/*Au click sur le btn "Modifier" affichage des modales lorsque l'on est Administrateur*/
 const containerModals = document.querySelector(".containerModals");
 const xmark = document.querySelector(".containerModals .fa-xmark");
 const pictureModal = document.querySelector(".pictureModal");
-const buttonModal = document.querySelector(".button_modal");
 
 function manageDisplayModalGallery(params) {
   /*Fonction qui gère l'affichage de "modifier" lorsque que l'admin est connecté*/
-  if (loged != "undefined") {
+  if (loged == "undefined" || loged == null) {
+  } else {
     buttonModal.style.display = "flex";
     /*Fonction qui gère l'affichage de la modale au click sur "modifier"*/
     const buttonModification = document.querySelectorAll(".button_modal");
@@ -164,7 +169,7 @@ async function displayGalleryModal() {
 }
 displayGalleryModal();
 
-/*Suppression d'une image avec la méthode "delete" pour la modal n°1*/
+/*Suppression d'une image avec la méthode "delete" pour la modale n°1*/
 function deleteProject() {
   const trashAll = document.querySelectorAll(".fa-trash-can");
   trashAll.forEach((trash) => {
@@ -196,7 +201,7 @@ function deleteProject() {
 }
 
 /**Code de la modal n°2**/
-/*Fait apparaître la deuxième modal une fois le html terminer*/
+/*Fait apparaître la deuxième modale une fois le html terminer*/
 const buttonAddModal = document.querySelector(".modalGallery button");
 const modalAddProject = document.querySelector(".modalAddProject");
 const modalGallery = document.querySelector(".modalGallery");
@@ -238,6 +243,20 @@ inputFile.addEventListener("change", () => {
       labelFile.style.display = "none";
       inconFile.style.display = "none";
       pFile.style.display = "none";
+      /*Permet de régler la taille max des img importer dans la modale n°2*/
+      const sizeInBytes = file.size;
+      const sizeInMegabytes = sizeInBytes / (1024 * 1024);
+      if (sizeInMegabytes > 4) {
+        alert("Le fichier est plus grand que 4 Mo.");
+        inputFile.value = "";
+        previewImg.style.display = "none";
+        labelFile.style.display = "initial";
+        inconFile.style.display = "flex";
+        pFile.style.display = "flex";
+      } else {
+        alert("Le fichier est moins de 4 Mo.");
+      }
+      /*Fin du réglage de la taille max des img importer*/
     };
     reader.readAsDataURL(file);
   }
@@ -256,7 +275,7 @@ async function displayCategoryModal() {
 }
 displayCategoryModal();
 
-/*La méthode POST pour ajouter une photo à l'aide du formulaire de la modal n°2*/
+/*La méthode POST pour ajouter une photo à l'aide du formulaire de la modale n°2*/
 const form = document.querySelector(".modalAddProject form");
 const title = document.querySelector(".modalAddProject #title");
 const category = document.querySelector(".modalAddProject #category");
@@ -266,7 +285,7 @@ form.addEventListener("submit", async (e) => {
   const buttonValidForm = document.querySelector(".modalAddProject button");
   /*Appelle du Token*/
   /*Avec le swagger pour ajouter un nouveau "works"*/
-  const loged = localStorage.getItem("token");
+  const loged = sessionStorage.getItem("token");
   console.log(loged);
   const formData2 = new FormData(form);
   await fetch("http://localhost:5678/api/works", {
