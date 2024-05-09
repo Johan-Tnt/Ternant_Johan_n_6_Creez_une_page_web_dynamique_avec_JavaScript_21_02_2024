@@ -247,14 +247,14 @@ inputFile.addEventListener("change", () => {
       const sizeInBytes = file.size;
       const sizeInMegabytes = sizeInBytes / (1024 * 1024);
       if (sizeInMegabytes > 4) {
-        alert("Le fichier est plus grand que 4 Mo.");
+        alert("Error, le fichier fait plus de 4 Mo.");
         inputFile.value = "";
         previewImg.style.display = "none";
         labelFile.style.display = "initial";
         inconFile.style.display = "flex";
         pFile.style.display = "flex";
       } else {
-        alert("Le fichier est moins de 4 Mo.");
+        alert("Success, le fichier fait moins de 4 Mo.");
       }
       /*Fin du réglage de la taille max des img importer*/
     };
