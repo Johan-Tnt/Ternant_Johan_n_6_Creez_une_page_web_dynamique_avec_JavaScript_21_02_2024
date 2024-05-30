@@ -362,6 +362,39 @@ footer nav ul {
   cursor: pointer;
   width: 200px;
 }
+/*Contient la bannière noir du mode édition lorsque l'on est login*/
+.edition_mode {
+  color: white;
+}
+.banner_mode {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 3%;
+  text-align: center;
+  padding-top: 17px;
+  padding-bottom: 5px;
+}
+.banner_edition {
+  position: relative;
+  width: 100%;
+  top: 0px;
+  padding-top: 18px;
+}
+.word_edition {
+  background-color: black;
+}
+.alignement_banner {
+  padding-right: 60px;
+}
+.logo_default {
+  padding-top: initial;
+}
+.alignement_logo {
+  padding-top: 20px;
+}
+/*Fin de la bannière*/
 
 /**Code de la modal n°1 Galerie des photos**/
 /**Mise en page du bouton modal**/
@@ -458,11 +491,11 @@ footer nav ul {
   position: relative;
   margin: auto;
   padding-top: 61px;
+  margin-bottom: 20px;
 }
 .pictureModal {
   height: 70%;
   display: flex;
-  /*justify-content: flex-center;*/
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
@@ -555,7 +588,6 @@ footer nav ul {
   width: 100%;
   height: 100%;
   position: absolute;
-  /*background: red;*/
   z-index: 0;
   opacity: 0;
   display: flex;
@@ -570,7 +602,6 @@ footer nav ul {
   display: none;
   max-width: 100%;
   max-height: 100%;
-  /*display: flex;*/
   pointer-events: none;
   z-index: 2;
 }

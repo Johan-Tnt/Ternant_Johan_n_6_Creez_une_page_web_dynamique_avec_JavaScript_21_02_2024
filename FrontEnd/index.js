@@ -30,9 +30,6 @@ function createProject(element) {
   figure.appendChild(img);
   figure.appendChild(figcaption);
   popUp.appendChild(figure); /*Pour faire apparaitre toute la section*/
-  console.log(figure);
-  console.log(img);
-  console.log(popUp);
 }
 
 /*Affichage des boutons filtres pour la galerie par catégorie de projet.*/
@@ -49,7 +46,6 @@ async function getCategorys() {
 
 async function displayCategorysButtons() {
   const categorys = await getCategorys();
-  console.log(categorys);
   /*Pour faire apparaitre les éléments des catégories*/
   categorys.forEach((category) => {
     const btn = document.createElement("button");
@@ -65,9 +61,7 @@ displayCategorysButtons();
 /*filtrer au click les boutons par catégories*/
 async function filterProject() {
   const categories = await fetchWork();
-  console.log(categories);
   const buttons = document.querySelectorAll(".filters button");
-  console.log(buttons);
   buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
       btnId = e.target.id;
@@ -78,12 +72,10 @@ async function filterProject() {
         });
         projectTriCats.forEach((element) => {
           createProject(element); /*Permet le filtrage des projets*/
-          console.log(projectTriCats);
         });
       } else {
         app();
       }
-      console.log(btnId);
     });
   });
 }
@@ -94,16 +86,29 @@ filterProject();
 const loged = sessionStorage.getItem("token");
 const admin = document.querySelector(".admin");
 const logout = document.querySelector(".logout");
-console.log(admin);
+
+/*Pour ajouter le mode édition du site lorsque l'on est login*/
+const edition = document.querySelector(".edition_mode .fa-pen-to-square");
+const banner = document.querySelector(".word_edition ");
+const mode = document.querySelector(".banner_edition ");
+const alignement = document.querySelector(".logo_default ");
+
 /*Au click sur le btn "Modifier" affichage des modales lorsque l'on est Administrateur*/
 const buttonModal = document.querySelector(".button_modal");
 
 if (loged == "undefined" || loged == null) {
   buttonModal.style.display = "none";
+  banner.style.display = "none";
+  edition.style.display = "none";
+  mode.style.display = "none";
 } else {
-  console.log(loged);
   /*Fait apparaître le mot "logout" et permet de déconnecter l'admin*/
   logout.textContent = "logout";
+  /*Ajout du texte et de la classe pour le mode édition*/
+  banner.textContent = "Mode édition";
+  banner.classList.add("banner_mode");
+  alignement.classList.add("alignement_logo");
+  edition.classList.add("banner_mode");
   logout.addEventListener("click", () => {
     sessionStorage.setItem("token", undefined);
   });
@@ -124,23 +129,18 @@ function manageDisplayModalGallery(params) {
     buttonModal.style.display = "flex";
     /*Fonction qui gère l'affichage de la modale au click sur "modifier"*/
     const buttonModification = document.querySelectorAll(".button_modal");
-    console.log(buttonModification);
     buttonModification.forEach((button) => {
       button.addEventListener("click", (e) => {
-        console.log("boutton");
         containerModals.style.display = "flex";
       });
     });
   }
   /*Gère la fermeture de la modal sur la croix*/
   xmark.addEventListener("click", () => {
-    console.log("xmark");
     containerModals.style.display = "none";
   });
   /*Gère la fermeture sur le container en dehors*/
   containerModals.addEventListener("click", (e) => {
-    console.log(e.target.className);
-    console.log("containerModals");
     if (e.target.className == "containerModals") {
       containerModals.style.display = "none";
     }
@@ -185,13 +185,11 @@ function deleteProject() {
       fetch("http://localhost:5678/api/works/" + id, init)
         .then((response) => {
           if (!response.ok) {
-            console.log("la supression n'a pas fonctionné !");
           }
-          return response /*.json()*/;
+          return response;
           /*Echec de la supression de la photo*/
         })
         .then((data) => {
-          console.log("La supression a fonctionné voici la data :", data);
           displayGalleryModal();
           app();
           /*Supression de la photo réussie*/
@@ -234,7 +232,6 @@ const pFile = document.querySelector(".containerFile p");
 /*Permet d'écouter les changements sur "l'input file"*/
 inputFile.addEventListener("change", () => {
   const file = inputFile.files[0];
-  console.log(file);
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
@@ -286,7 +283,6 @@ form.addEventListener("submit", async (e) => {
   /*Appelle du Token*/
   /*Avec le swagger pour ajouter un nouveau "works"*/
   const loged = sessionStorage.getItem("token");
-  console.log(loged);
   const formData2 = new FormData(form);
   await fetch("http://localhost:5678/api/works", {
     method: "POST",
@@ -297,8 +293,6 @@ form.addEventListener("submit", async (e) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      console.log("la photo a été ajouté", data);
       displayGalleryModal();
       app();
       containerModals.style.display = "none";
@@ -310,11 +304,7 @@ form.addEventListener("submit", async (e) => {
       buttonValidForm.disabled = true;
       buttonValidForm.classList.remove("valid");
       /*Ajout de la photo*/
-    })
-    .catch((error) =>
-      console.log("erreur, la photo n'a pas été ajouté", error)
-    );
-  /*Erreur photo non ajoutée*/
+    });
 });
 
 /*Fonction qui vérifie si tout les inputs sont remplis*/
